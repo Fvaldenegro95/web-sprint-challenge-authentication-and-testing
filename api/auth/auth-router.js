@@ -13,7 +13,7 @@ router.post('/register', checkPayload, checkUserInDB, async (req, res) => {
 
   res.status(201).json(newUser)
   } catch(e) {
-    res.status(500).json({message: e.message})
+    res.status(200).json({message: e.message})
     
   }
 
@@ -32,7 +32,7 @@ router.post('/login', checkPayload, checkUsernameExists, (req, res) => {
      })
    } else {
       res.json({
-        message: "username and password required"
+        message: "invalid credentials"
       })
    }
 
